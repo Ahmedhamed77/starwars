@@ -1,0 +1,29 @@
+
+.containerActivityIndicator{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.activityIndicator {
+  animation: fullRotation 1s infinite linear;
+}
+.example {
+  background-color: 'red';
+  width: '100px';
+  height: '200px';
+}
+.Button {
+  padding: 20px;
+  background-color: lightblue;
+
+}
+
+@keyframes fullRotation {
+    from {
+      transform: rotate(0deg);
+    } 
+    to {
+      transform: rotate(360deg);
+    }
+  }

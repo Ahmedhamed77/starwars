@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+.img-hero {
+  max-width: 100%;
+  max-height: 100%;
+  display: block; /* remove extra space below image */
+  object-fit: cover;
+}
+.card {
+  width: calculate(33% - 10px);
+  margin: 10px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12),
+    0px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+.detailsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+.hero-icon {
+  padding-top: 28px;
+}
+.hero-name {
+  font-family: 'Noto Sans', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 28px;
+}
