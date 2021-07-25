@@ -1,7 +1,6 @@
 .search-form {
   margin: 0 20px;
   padding: 10px 0 20px 20px;
-  /* border: 1px solid red; */
 }
 .form-bar {
   display: flex;
@@ -18,4 +17,11 @@
   border-radius: 0.25rem;
   color: hsl(209, 34%, 30%);
   letter-spacing: 0.1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .search-form {
+    margin: 0;
+    padding: 0;
+  }
 }

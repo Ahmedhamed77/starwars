@@ -2,19 +2,18 @@
 
 .navbar {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   color: black;
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   padding-left: 25px;
-  /* border: 1px solid red; */
 }
 .header-nav {
   margin: 0;
   padding: 0;
 }
 .links {
-  margin: 10px;
+  margin: 20px;
 }
 .navbar__title {
   margin-right: auto;
@@ -33,5 +32,10 @@
 @media screen and (max-width: 600px) {
   .header-nav {
     font-size: 20px;
+    padding-left: 0px;
+  }
+
+  .navbar {
+    padding-left: 0px;
   }
 }
