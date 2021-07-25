@@ -1,0 +1,22 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.containerFavorite {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 25px;
+}
+
+.header-favorite {
+  display: flex;
+}
+
+.containerCard {
+  padding: 0;
+  margin: 0 44px;
+  display: flex;
+  flex-wrap: wrap;
+}

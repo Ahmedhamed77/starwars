@@ -5,6 +5,7 @@ import {ActivityIndicator} from '../../components/ActivityIndicator';
 import {
   addHeroToFavorite,
   fetchCharactersData,
+  fetchSearchedHeroes,
   removeHeroFromFavorite,
 } from '../../redux/hero/actions';
 import {Store} from '../../redux/store/types';
@@ -13,50 +14,53 @@ import green from '@material-ui/core/colors/green';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import {HeroCard} from '../../components/HeroCard';
 import './styles.css';
-import { Navbar } from '../../components/NavBar';
+import {Navbar} from '../../components/NavBar';
+import {ButtonPagination} from '../../components/ButtonPagination';
+import {SearchBar} from '../../components/searchbar';
+import {FilterButton} from '../../components/FilterButton';
+import {hero} from '../../redux/hero/reducers';
+
 export const MainScreen = () => {
   const dispatch = useDispatch();
   const {heroes, heroIsLoading, favorites} = useSelector(
     (store: Store) => store.hero,
   );
-  const imgURL = 'https://starwars-visualguide.com/assets/img/characters/';
+  const [query, setQuery] = useState('');
+  const [data, setData] = useState(heroes);
+
   useEffect(() => {
-    dispatch(fetchCharactersData());
-  }, []);
+    !heroes.length && dispatch(fetchCharactersData());
+    setData(heroes);
+  }, [heroes]);
 
-  const exists = (hero: any) => {
-    if (favorites.filter(item => item.name === hero.name).length > 0) {
-      console.log('true');
-      return true;
+  let uniques = Array.from(new Set(heroes.map(hero => hero.gender)));
+  let categories = ['all', ...uniques];
+
+  const filterItems = (category: any) => {
+    if (category === 'all') {
+      setData(heroes);
+      return;
     }
-    console.log('false');
-    return false;
-  };
-  const addToFav = (hero: any) => {
-    dispatch(addHeroToFavorite(hero));
+    const newItems = heroes.filter(item => item.gender === category);
+    setData(newItems);
   };
 
-  const removeFromFav = (hero: any) => {
-    dispatch(removeHeroFromFavorite(hero));
-  };
-  function getId(url: any) {
-    return url.split('/')[url.split('/').length - 2];
-  }
   return (
     <div>
-      {/* <HeroCard hero={heroes} /> */}
-
+      <Navbar />
+      
+      <SearchBar heroes={heroes} query={query} setQuery={setQuery} />
+      <FilterButton categories={categories} filterItems={filterItems} />
       {heroIsLoading ? (
         <ActivityIndicator />
       ) : (
         <div>
-            <Navbar/>
-            <ul className="container">
-              {heroes.map((hero, index) => {
-                return <HeroCard key={index} hero={hero} />;
-              })}
-            </ul>
-          </div>
+          <ul className="container">
+            {data.map((hero, index) => {
+              return <HeroCard key={index} hero={hero} />;
+            })}
+          </ul>
+        </div>
       )}
     </div>
   );

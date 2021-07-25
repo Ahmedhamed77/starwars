@@ -1,0 +1,16 @@
+.btn-container {
+  padding: 10px;
+}
+.prevNextButton {
+  background-color: #a9a9a9;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin: 0 10px;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+}

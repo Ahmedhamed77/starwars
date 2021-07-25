@@ -20,7 +20,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({hero}) => {
     return url.split('/')[url.split('/').length - 2];
   }
 
-  console.log(hero, 'hero ===');
+  // console.log(hero, 'hero ===');
   const exists = (hero: any) => {
     if (favorites.filter(item => item.name === hero.name).length > 0) {
       return true;

@@ -1,6 +1,11 @@
-.container {
+body {
+  background-color: #f1f5f8;
   padding: 0;
   margin: 0;
+}
+.container {
+  padding: 0;
+  margin: 0 44px;
   display: flex;
   flex-wrap: wrap;
 }

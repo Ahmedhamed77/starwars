@@ -4,6 +4,8 @@ import {
   heroIsLoading,
   removeHeroFromFavorite,
   addHeroToFavorite,
+  searchHero,
+  handlePaginationHero,
 } from './actions';
 
 export interface HeroReducer {
@@ -68,4 +70,6 @@ export type HeroAction =
   | ReturnType<typeof getHeroesData>
   | ReturnType<typeof addHeroToFavorite>
   | ReturnType<typeof removeHeroFromFavorite>
+  | ReturnType<typeof searchHero>
+  | ReturnType<typeof handlePaginationHero>
   | ReturnType<typeof heroIsLoading>;

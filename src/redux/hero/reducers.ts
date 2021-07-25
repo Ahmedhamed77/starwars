@@ -22,6 +22,16 @@ export const hero: Reducer<HeroReducer, HeroAction> = (
         ...state,
         heroIsLoading: action.status,
       };
+    case 'SEARCH_HERO':
+      return {
+        ...state,
+        heroes: action.searchedHero,
+      };
+    case 'HERO_PAGINATION':
+      return {
+        ...state,
+        heroes: action.heroPagination,
+      };
     case 'ADD_HERO_TO_FAVORITE':
       return {
         ...state,
