@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {heroPagination} from '../../redux/hero/actions';
 import {hero} from '../../redux/hero/reducers';
 import {Store} from '../../redux/store/types';
-import './button.css'
+import './button.css';
 
 export interface ButtonPaginationProps {
   // page:string,
@@ -13,15 +13,13 @@ export const ButtonPagination: React.FC<ButtonPaginationProps> = ({}) => {
   const isLoading = useSelector((store: Store) => store.hero.heroIsLoading);
   const [page, setPage] = useState(1);
   const handleNextPage = () => {
-      if(page === 9){
-          setPage(9);
-          dispatch(heroPagination(9));
-      }
-      else{
-        setPage(prev => prev + 1);
-        dispatch(heroPagination(page + 1));
-      }
-  
+    if (page === 9) {
+      setPage(9);
+      dispatch(heroPagination(9));
+    } else {
+      setPage(prev => prev + 1);
+      dispatch(heroPagination(page + 1));
+    }
   };
   const handlePrevPage = () => {
     if (page <= 1) {
@@ -34,18 +32,24 @@ export const ButtonPagination: React.FC<ButtonPaginationProps> = ({}) => {
   };
   return (
     <div className="btn-container">
+      {/* <a href="#" className="back">
+        ‹
+      </a>
+      <a href="#" className="next" onClick={() =>}>
+        
+      </a> */}
       <button
-      className='prevNextButton'
+        className="button"
         disabled={isLoading}
         onClick={handlePrevPage}>
-        Prev
+        ‹
       </button>
       <button
-        className='prevNextButton'
+        className="button"
         disabled={isLoading}
         onClick={handleNextPage}>
-        next
-      </button> 
+        ›
+      </button>
     </div>
   );
 };

@@ -6,13 +6,12 @@ export const Navbar = () => {
   return (
     <header className="navbar">
       <div className="navbar__title navbar__item">
-        <h2>Star Wars</h2>
+        <h2 className='header-nav'>Star Wars</h2>
       </div>
-      <div className="navbar__item">
-        <Link to="/">Home</Link>
-      </div>
-      <div className="navbar__item">
-        <Link to="/favorite">Favorite</Link>
+     
+        <div className='links'>
+        <Link className='navbar__item' to="/">Home</Link>
+        <Link className='navbar__item' to="/favorite">Favorite</Link>
       </div>
     </header>
   );

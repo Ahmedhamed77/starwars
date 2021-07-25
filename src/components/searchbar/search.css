@@ -1,8 +1,7 @@
 .search-form {
-  /* display: flex; */
-  /* justify-content: space-between; */
   margin: 0 20px;
-  padding: 10px 0 20px;
+  padding: 10px 0 20px 20px;
+  /* border: 1px solid red; */
 }
 .form-bar {
   display: flex;
@@ -12,7 +11,7 @@
 .form-input {
   width: 100%;
   border: transparent;
-  max-width: 50%;
+  max-width: 40%;
   background: #fff;
   padding: 1rem;
   font-size: 1rem;
