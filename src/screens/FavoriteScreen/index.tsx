@@ -10,14 +10,20 @@ export const FavoriteScreen = () => {
   return (
     <div className="containerFavorite">
       <div>
-        <h1 className="header-favorite">Favorite</h1>
+        <h1 className="header-favorite">Favorites</h1>
       </div>
-      <div >
-          <ul className="containerCard">
-            {favorites.map((favorite, index) => {
+      <div>
+        <ul className="containerCard">
+          {!favorites.length ? (
+            
+              <p className='no-favorite'>you don&#x27;t have favorites yet &#44; please add some.</p>
+           
+          ) : (
+            favorites.map((favorite, index) => {
               return <HeroCard key={index} hero={favorite} />;
-            })}
-          </ul>
+            })
+          )}
+        </ul>
       </div>
     </div>
   );
