@@ -18,7 +18,7 @@
 }
 .navbar__title {
   margin-right: auto;
-  font-size: 150%;
+  font-size: 20px;
   padding: 12px 16px;
 }
 
@@ -28,4 +28,10 @@
   cursor: pointer;
   vertical-align: middle;
   text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+  .header-nav {
+    font-size: 20px;
+  }
 }

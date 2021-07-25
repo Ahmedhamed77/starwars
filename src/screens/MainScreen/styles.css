@@ -4,8 +4,16 @@ body {
   margin: 0;
 }
 .container {
+  /* border: 1px solid red; */
   padding: 0;
   margin: 0 44px;
   display: flex;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    margin: auto;
+    justify-content: center;
+  }
 }

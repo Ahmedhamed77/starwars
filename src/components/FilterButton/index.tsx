@@ -8,10 +8,9 @@ export const FilterButton: React.FC<FilterButtonProps> = ({categories,filterItem
   return (
     <div className="filter-container">
          <p className='filter-text'>Filter Hero</p>
-      {categories.map((category:any, index:number) => {
+         <div>
+         {categories.map((category:any, index:number) => {
           return (
-         
-              
             <button
               type="button"
               className="filter-btn"
@@ -23,6 +22,8 @@ export const FilterButton: React.FC<FilterButtonProps> = ({categories,filterItem
           
           );
         })}
+         </div>
+ 
     </div>
   );
 };
