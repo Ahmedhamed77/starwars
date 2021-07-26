@@ -3,7 +3,6 @@ import {HeroAction, HeroReducer} from './types';
 
 const initialState: HeroReducer = {
   heroes: [],
-  favorites: [],
   heroIsLoading: false,
 };
 
@@ -26,21 +25,6 @@ export const hero: Reducer<HeroReducer, HeroAction> = (
       return {
         ...state,
         heroes: action.searchedHero,
-      };
-    case 'HERO_PAGINATION':
-      return {
-        ...state,
-        heroes: action.heroPagination,
-      };
-    case 'ADD_HERO_TO_FAVORITE':
-      return {
-        ...state,
-        favorites: [...state.favorites, action.hero],
-      };
-    case 'REMOVE_HERO_FROM_FAVORITE':
-      return {
-        ...state,
-        favorites: state.favorites.filter(hero => hero.name !== action.hero),
       };
     default:
       return state;

@@ -25,7 +25,7 @@ export const SearchBar:React.FC<SearchBarProps> = ({heroes,query,setQuery}) => {
                 dispatch(fetchSearchedHeroes(query))
               }}
             />
-              <ButtonPagination/>
+              {/* <ButtonPagination/> */}
             </div>
          
             { heroes.length ? <div className='error'></div> : <p> sorry no matches</p>} 

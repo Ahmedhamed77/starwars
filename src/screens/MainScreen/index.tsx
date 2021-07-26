@@ -3,10 +3,8 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {ActivityIndicator} from '../../components/ActivityIndicator';
 import {
-  addHeroToFavorite,
   fetchCharactersData,
   fetchSearchedHeroes,
-  removeHeroFromFavorite,
 } from '../../redux/hero/actions';
 import {Store} from '../../redux/store/types';
 // import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -22,14 +20,15 @@ import {hero} from '../../redux/hero/reducers';
 
 export const MainScreen = () => {
   const dispatch = useDispatch();
-  const {heroes, heroIsLoading, favorites} = useSelector(
+  const {heroes, heroIsLoading} = useSelector(
     (store: Store) => store.hero,
   );
+ 
   const [query, setQuery] = useState('');
   const [data, setData] = useState(heroes);
-
+  const [page,setPage] = useState(1);
   useEffect(() => {
-    !heroes.length && dispatch(fetchCharactersData());
+    !heroes.length && dispatch(fetchCharactersData(1));
     setData(heroes);
   }, [heroes]);
 
@@ -60,8 +59,11 @@ export const MainScreen = () => {
               return <HeroCard key={index} hero={hero} />;
             })}
           </ul>
+          <ButtonPagination page={page} setPage={setPage}/>
         </div>
+        
       )}
+      
     </div>
   );
 };
