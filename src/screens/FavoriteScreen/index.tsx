@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import {HeroCard} from '../../components/HeroCard';
 import { CardHeroContainer } from '../../containers/CardHeroContainer';
+import { Store } from '../../redux/store/types';
 import './favorite.css';
 
 export const FavoriteScreen = () => {
   const data = JSON.parse(localStorage.getItem('star-wars')|| '[]');
+  const {favorites} = useSelector((store: Store) => store.heroFavorites);
+
+  const [favoritesHero,setFavoritesHero] = useState<any[]>([]);
+  
+  useEffect(() => {
+    setFavoritesHero(data);
+  },[favorites])
   return (
     <div className="containerFavorite">
       <div>
@@ -12,13 +21,13 @@ export const FavoriteScreen = () => {
       </div>
       <div>
         <ul className="containerCard">
-          {!data?.length ? (
+          {!favoritesHero?.length ? (
             <p className="no-favorite">
               you don&#x27;t have favorites yet &#44; please add some.
             </p>
           ) : (
-            data?.map((favorite: any, index: number) => {
-              return <CardHeroContainer key={index} hero={favorite} />;
+            favoritesHero?.map((favorite: any, index: number) => {
+              return <CardHeroContainer key={index} hero={favorite} data={favoritesHero}/>;
             })
           )}
         </ul>

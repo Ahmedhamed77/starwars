@@ -20,10 +20,13 @@ export const MainScreen = () => {
   const [query, setQuery] = useState('');
   const [data, setData] = useState(heroes);
   const [page, setPage] = useState(1);
+  const dataFavorites = JSON.parse(localStorage.getItem('star-wars') || '[]');
+  const [heroFavorites, setHeroFavorites] = useState<any[]>([]);
 
   useEffect(() => {
     !heroes.length && dispatch(fetchCharactersData(page));
     setData(heroes);
+    setHeroFavorites(dataFavorites);
   }, [heroes,favorites]);
 
 
@@ -33,7 +36,7 @@ export const MainScreen = () => {
       dispatch(fetchCharactersData(9));
     } else {
       setPage(page => page + 1);
-      dispatch(fetchCharactersData(page));
+      dispatch(fetchCharactersData(page+1));
     }
   };
   const handlePrevPage = () => {
@@ -68,7 +71,7 @@ export const MainScreen = () => {
         <div>
           <ul className="container">
             {data.map((hero, index) => {
-              return <CardHeroContainer key={index} hero={hero} />;
+              return <CardHeroContainer key={index} hero={hero} data={heroFavorites}/>;
             })}
           </ul>
           <Pagination handleNextPage={handleNextPage} handlePrevPage={handlePrevPage} />

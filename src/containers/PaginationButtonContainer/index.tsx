@@ -5,7 +5,6 @@ import {fetchCharactersData} from '../../redux/hero/actions';
 import {Store} from '../../redux/store/types';
 
 export interface ButtonPaginationProps {
-
   handleNextPage:any,
   handlePrevPage:any,
 }
