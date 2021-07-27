@@ -45,7 +45,7 @@ export const MainScreen = () => {
       dispatch(fetchCharactersData(1));
     } else {
       setPage(page - 1);
-      dispatch(fetchCharactersData(page));
+      dispatch(fetchCharactersData(page - 1));
     }
   };
   
