@@ -1,5 +1,6 @@
 import React from 'react';
 import {HeroCard} from '../../components/HeroCard';
+import { CardHeroContainer } from '../../containers/CardHeroContainer';
 import './favorite.css';
 
 export const FavoriteScreen = () => {
@@ -17,7 +18,7 @@ export const FavoriteScreen = () => {
             </p>
           ) : (
             data?.map((favorite: any, index: number) => {
-              return <HeroCard key={index} hero={favorite} />;
+              return <CardHeroContainer key={index} hero={favorite} />;
             })
           )}
         </ul>

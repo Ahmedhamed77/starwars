@@ -4,39 +4,30 @@ import {useDispatch, useSelector} from 'react-redux';
 import {ActivityIndicator} from '../../components/ActivityIndicator';
 import {
   fetchCharactersData,
-  fetchSearchedHeroes,
 } from '../../redux/hero/actions';
 import {Store} from '../../redux/store/types';
-// import FavoriteIcon from '@material-ui/icons/Favorite';
-import green from '@material-ui/core/colors/green';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import {HeroCard} from '../../components/HeroCard';
+
 import './styles.css';
 import {Navbar} from '../../components/NavBar';
-import {ButtonPagination} from '../../components/ButtonPagination';
 import {SearchBar} from '../../components/searchbar';
 import {FilterButton} from '../../components/FilterButton';
+import { Pagination } from '../../containers/PaginationButtonContainer';
+import { CardHeroContainer } from '../../containers/CardHeroContainer';
 
 export const MainScreen = () => {
   const dispatch = useDispatch();
   const {heroes, heroIsLoading} = useSelector(
     (store: Store) => store.hero,
   );
- 
   const [query, setQuery] = useState('');
   const [data, setData] = useState(heroes);
   const [page,setPage] = useState(1);
-
-  const heroFavorites = JSON.parse(	localStorage.getItem('star-wars')  || '{}'	);
 
   useEffect(() => {
     !heroes.length && dispatch(fetchCharactersData(1));
     setData(heroes);
   }, [heroes]);
 
-
-
-  
   let uniques = Array.from(new Set(heroes.map(hero => hero.gender)));
   let categories = ['all', ...uniques];
   const filterItems = (category: any) => {
@@ -60,10 +51,10 @@ export const MainScreen = () => {
         <div>
           <ul className="container">
             {data.map((hero, index) => {
-              return <HeroCard key={index} hero={hero}  />;
+              return <CardHeroContainer key={index} hero={hero}  />;
             })}
           </ul>
-          <ButtonPagination page={page} setPage={setPage}/>
+          <Pagination page={page} setPage={setPage}/>
         </div>
         
       )}
