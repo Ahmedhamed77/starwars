@@ -22,7 +22,7 @@ export const MainScreen = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-     !heroes.length && dispatch(fetchCharactersData(page));
+    !heroes.length && dispatch(fetchCharactersData(page));
     setData(heroes);
   }, [heroes,favorites]);
 

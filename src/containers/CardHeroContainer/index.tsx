@@ -12,11 +12,13 @@ interface HeroCardContainerProps {
 export const CardHeroContainer: React.FC<HeroCardContainerProps> = ({hero}) => {
   const imgURL = 'https://starwars-visualguide.com/assets/img/characters/';
 
+
   const dispatch = useDispatch();
   const data = JSON.parse(localStorage.getItem('star-wars') || '[]');
   const [arr, setArr] = useState<any[]>([]);
   useEffect(() => {
     setArr(data);
+    console.log('here');
   }, []);
 
   function getId(url: any) {
