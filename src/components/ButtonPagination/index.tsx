@@ -15,6 +15,7 @@ export const ButtonPagination: React.FC<ButtonPaginationProps> = ({
 }) => {
   const dispatch = useDispatch();
   const isLoading = useSelector((store: Store) => store.hero.heroIsLoading);
+
   const handleNextPage = () => {
     if (page === 9) {
       setPage(9);
@@ -27,10 +28,10 @@ export const ButtonPagination: React.FC<ButtonPaginationProps> = ({
   const handlePrevPage = () => {
     if (page <= 1) {
       setPage(1);
-      dispatch(heroPagination(1));
+      dispatch(fetchCharactersData(1));
     } else {
       setPage(page - 1);
-      dispatch(heroPagination(page - 1));
+      dispatch(fetchCharactersData(page - 1));
     }
   };
   return (

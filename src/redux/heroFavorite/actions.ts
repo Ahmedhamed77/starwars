@@ -21,13 +21,10 @@ export const favoriteIsLoading = (status: boolean) =>
 //   };
 
 export const addHeroFavorite =
-  (hero: hero): AppThunk =>
+  (hero: any): AppThunk =>
   async dispatch => {
     dispatch(favoriteIsLoading(true));
-    const arr: any = [];
     dispatch(addHeroToFavorite(hero));
-    localStorage.setItem(`${hero.url}`, JSON.stringify(arr));
-
     dispatch(favoriteIsLoading(false));
   };
 

@@ -19,7 +19,9 @@ export const heroFavorites: Reducer<FavoritesReducer, FavoritesAction> = (
     case 'REMOVE_HERO_FROM_FAVORITE':
       return {
         ...state,
-        favorites: state.favorites.filter(hero => hero.name !== action.hero),
+        favorites: state.favorites.filter(
+          hero => hero.name !== action.hero.name,
+        ),
       };
     case 'FAVORITE_IS_LOADING':
       return {

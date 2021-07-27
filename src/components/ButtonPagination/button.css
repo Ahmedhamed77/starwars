@@ -1,6 +1,8 @@
 .btn-container {
   padding: 10px;
-  /* border: 1px solid red; */
+  display: flex;
+  padding: 20px 10px 20px;
+  justify-content: center;
 }
 .button {
   height: 40px;
@@ -10,7 +12,7 @@
   background-color: #c59d5f;
   color: white;
   text-align: center;
-  margin-left: 5px;
+  margin-left: 30px;
   border: none;
   cursor: pointer;
 }
