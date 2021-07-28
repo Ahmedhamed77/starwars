@@ -39,7 +39,6 @@ export const fetchSearchedHeroes =
 
     try {
       const res = await heroesSearch(query);
-      console.log('what is here ', res);
       dispatch(searchHero(res));
     } catch (error: any) {
       console.log(error, 'error fetching search heroes');

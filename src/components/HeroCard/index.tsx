@@ -40,7 +40,6 @@ export const HeroCard: React.FC<HeroCardProps> = ({
           className="hero-icon"
           onClick={() => {
             exists(hero) ? handleRemoveFav(hero) : handleAddFav(hero);
-            console.log(Boolean(exists(hero)));
           }}>
           <FavoriteIcon style={{color: exists(hero) ? 'red' : 'grey'}} />
         </div>

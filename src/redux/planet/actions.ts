@@ -10,7 +10,6 @@ export const fetchPlanet = (planet: any) =>
 export const planetInfo =
   (url: string): AppThunk =>
   async dispatch => {
-    console.log(url, 'here');
     try {
       const res = await getPlanet(url);
       dispatch(fetchPlanet(res));
