@@ -11,6 +11,7 @@ import {SearchBar} from '../../components/searchbar';
 import {FilterButton} from '../../components/FilterButton';
 import {Pagination} from '../../containers/PaginationButtonContainer';
 import {CardHeroContainer} from '../../containers/CardHeroContainer';
+import { hero } from '../../redux/hero/types';
 
 export const MainScreen = () => {
   const dispatch = useDispatch();
@@ -21,14 +22,13 @@ export const MainScreen = () => {
   const [data, setData] = useState(heroes);
   const [page, setPage] = useState(1);
   const dataFavorites = JSON.parse(localStorage.getItem('star-wars') || '[]');
-  const [heroFavorites, setHeroFavorites] = useState<any[]>([]);
+  const [heroFavorites, setHeroFavorites] = useState<hero[]>([]);
 
   useEffect(() => {
     !heroes.length && dispatch(fetchCharactersData(page));
     setData(heroes);
     setHeroFavorites(dataFavorites);
-  }, [heroes,favorites]);
-
+  }, [heroes, favorites]);
 
   const handleNextPage = () => {
     if (page === 9) {
@@ -36,7 +36,7 @@ export const MainScreen = () => {
       dispatch(fetchCharactersData(9));
     } else {
       setPage(page => page + 1);
-      dispatch(fetchCharactersData(page+1));
+      dispatch(fetchCharactersData(page + 1));
     }
   };
   const handlePrevPage = () => {
@@ -48,10 +48,10 @@ export const MainScreen = () => {
       dispatch(fetchCharactersData(page - 1));
     }
   };
-  
+
   let uniques = Array.from(new Set(heroes.map(hero => hero.gender)));
   let categories = ['all', ...uniques];
-  const filterItems = (category: any) => {
+  const filterItems = (category: string) => {
     if (category === 'all') {
       setData(heroes);
       return;
@@ -59,6 +59,7 @@ export const MainScreen = () => {
     const newItems = heroes.filter(item => item.gender === category);
     setData(newItems);
   };
+
 
   return (
     <div>
@@ -71,10 +72,20 @@ export const MainScreen = () => {
         <div>
           <ul className="container">
             {data.map((hero, index) => {
-              return <CardHeroContainer key={index} hero={hero} data={heroFavorites}/>;
+              return (
+                <CardHeroContainer
+                  key={index}
+                  hero={hero}
+                  data={heroFavorites}
+                />
+              );
             })}
           </ul>
-          <Pagination handleNextPage={handleNextPage} handlePrevPage={handlePrevPage} />
+
+          <Pagination
+            handleNextPage={handleNextPage}
+            handlePrevPage={handlePrevPage}
+          />
         </div>
       )}
     </div>

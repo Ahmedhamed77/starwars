@@ -1,5 +1,6 @@
-import React from 'react'
+import React from 'react';
 import './loader.css';
+
 export const ActivityIndicator = () => {
 
     const style = {

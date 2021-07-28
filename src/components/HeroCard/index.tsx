@@ -1,14 +1,16 @@
 import React from 'react';
+
 import './heroCard.css';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import { hero } from '../../redux/hero/types';
 
 interface HeroCardProps {
   imageUrl: string;
-  hero: any;
+  hero: hero;
   getId: (url: string) => void;
-  exists: any;
-  handleRemoveFav: any;
-  handleAddFav: any;
+  exists: (hero: hero) => boolean;
+  handleRemoveFav: (hero: hero) => void;
+  handleAddFav: (hero: hero) => void;
 }
 export const HeroCard: React.FC<HeroCardProps> = ({
   imageUrl,

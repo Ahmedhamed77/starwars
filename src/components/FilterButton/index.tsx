@@ -1,8 +1,9 @@
 import React from 'react';
+
 import './filter.css';
 export interface FilterButtonProps {
-  categories: any;
-  filterItems: any;
+  categories: string[];
+  filterItems: (data: string) => void;
 }
 export const FilterButton: React.FC<FilterButtonProps> = ({
   categories,

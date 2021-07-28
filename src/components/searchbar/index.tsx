@@ -5,9 +5,26 @@ import {ButtonPagination} from '../ButtonPagination';
 import './search.css';
 
 export interface SearchBarProps {
-  heroes: any;
-  query: any;
-  setQuery: any;
+  heroes: {
+    name: string;
+    height: string;
+    mass: string;
+    hair_color: string;
+    skin_color: string;
+    eye_color: string;
+    birth_year: string;
+    gender: string;
+    homeworld: string;
+    films: [];
+    species: [];
+    vehicles: [];
+    starships: [];
+    created: string;
+    edited: string;
+    url: string;
+  }[];
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({

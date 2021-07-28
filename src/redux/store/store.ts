@@ -1,16 +1,10 @@
 import thunkMiddleware from 'redux-thunk';
-import {applyMiddleware, combineReducers, createStore} from 'redux';
+import {applyMiddleware, createStore} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 
-import {hero} from '../hero/reducers';
-import {heroFavorites} from '../heroFavorite/reducers';
-
-const rootReducer = combineReducers({
-  hero,
-  heroFavorites,
-});
+import {appReducers} from '../app/reducer';
 
 export const store = createStore(
-  rootReducer,
+  appReducers,
   composeWithDevTools(applyMiddleware(thunkMiddleware)),
 );

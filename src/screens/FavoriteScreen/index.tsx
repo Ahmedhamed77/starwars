@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import {HeroCard} from '../../components/HeroCard';
+import { useDispatch, useSelector } from 'react-redux';
 import { CardHeroContainer } from '../../containers/CardHeroContainer';
 import { Store } from '../../redux/store/types';
 import './favorite.css';
@@ -9,8 +8,9 @@ export const FavoriteScreen = () => {
   const data = JSON.parse(localStorage.getItem('star-wars')|| '[]');
   const {favorites} = useSelector((store: Store) => store.heroFavorites);
 
+  const dispatch = useDispatch();
   const [favoritesHero,setFavoritesHero] = useState<any[]>([]);
-  
+
   useEffect(() => {
     setFavoritesHero(data);
   },[favorites])

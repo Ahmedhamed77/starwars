@@ -1,26 +1,31 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+
 import {HeroCard} from '../../components/HeroCard';
+import {hero} from '../../redux/hero/types';
 import {
   addHeroFavorite,
   removeHeroFavorite,
 } from '../../redux/heroFavorite/actions';
-import { Store } from '../../redux/store/types';
+import {planetInfo} from '../../redux/planet/actions';
+import {Store} from '../../redux/store/types';
 
 interface HeroCardContainerProps {
-  data:any,
-  hero: any;
+  data: hero[];
+  hero: hero;
 }
-export const CardHeroContainer: React.FC<HeroCardContainerProps> = ({data,hero}) => {
+export const CardHeroContainer: React.FC<HeroCardContainerProps> = ({
+  data,
+  hero,
+}) => {
+  const dispatch = useDispatch();
+
   const imgURL = 'https://starwars-visualguide.com/assets/img/characters/';
 
-  console.log(hero,'hero from card')
-  const {favorites} = useSelector((store: Store) => store.heroFavorites);
-  const dispatch = useDispatch();
- 
-  console.log(data,'what is data ===')
-  const exists = (hero: any) => {
-    if (data?.filter((item: { name: any; }) => item.name === hero.name).length > 0) {
+  const exists = (hero: hero) => {
+    if (
+      data?.filter((item: {name: any}) => item.name === hero.name).length > 0
+    ) {
       return true;
     }
     return false;
@@ -30,21 +35,22 @@ export const CardHeroContainer: React.FC<HeroCardContainerProps> = ({data,hero})
     return url.split('/')[url.split('/').length - 2];
   }
 
-  const saveToLocalStorage = (items: any) => {
+  const saveToLocalStorage = (items: hero[]) => {
     localStorage.setItem('star-wars', JSON.stringify(items));
   };
 
-
-  const addToFav = (hero: any) => {
+  const addToFav = (hero: hero) => {
     const data = JSON.parse(localStorage.getItem('star-wars') || '[]');
     const items = [...data, hero];
     dispatch(addHeroFavorite(hero));
     saveToLocalStorage(items);
   };
 
-  const removeFromFav = (hero: any) => {
+  const removeFromFav = (hero: hero) => {
     dispatch(removeHeroFavorite(hero));
-    const newArrList = data.filter((item: { name: any; }) => item.name !== hero.name);
+    const newArrList = data.filter(
+      (item: {name: any}) => item.name !== hero.name,
+    );
     saveToLocalStorage(newArrList);
   };
   return (

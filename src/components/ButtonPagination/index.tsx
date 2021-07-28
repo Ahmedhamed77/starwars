@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
+
 import './button.css';
 
 export interface ButtonPaginationProps {
