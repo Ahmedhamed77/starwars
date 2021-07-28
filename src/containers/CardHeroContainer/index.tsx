@@ -1,5 +1,5 @@
-import React from 'react';
-import {useDispatch} from 'react-redux';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
 import {HeroCard} from '../../components/HeroCard';
 import {hero} from '../../redux/hero/types';
@@ -7,20 +7,26 @@ import {
   addHeroFavorite,
   removeHeroFavorite,
 } from '../../redux/heroFavorite/actions';
-
+import {planetInfo} from '../../redux/planet/actions';
+import {Store} from '../../redux/store/types';
 
 interface HeroCardContainerProps {
   data: hero[];
   hero: hero;
+  index: number;
 }
 export const CardHeroContainer: React.FC<HeroCardContainerProps> = ({
   data,
   hero,
+  index,
 }) => {
   const dispatch = useDispatch();
-
   const imgURL = 'https://starwars-visualguide.com/assets/img/characters/';
+  const {planet} = useSelector((store: Store) => store.planetHero);
 
+  useEffect(() => {
+    dispatch(planetInfo(hero.homeworld));
+  }, []);
   const exists = (hero: hero) => {
     if (
       data?.filter((item: {name: any}) => item.name === hero.name).length > 0
@@ -54,6 +60,8 @@ export const CardHeroContainer: React.FC<HeroCardContainerProps> = ({
   };
   return (
     <HeroCard
+      planet={planet}
+      index={index}
       imageUrl={imgURL}
       hero={hero}
       getId={getId}

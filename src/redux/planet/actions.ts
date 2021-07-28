@@ -13,7 +13,6 @@ export const planetInfo =
     console.log(url, 'here');
     try {
       const res = await getPlanet(url);
-      console.log(res, 'reees');
       dispatch(fetchPlanet(res));
     } catch (error) {
       console.log(error, 'error');

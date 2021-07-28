@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 .img-hero {
   max-width: 100%;
@@ -28,4 +29,18 @@
   font-weight: 800;
   font-size: 24px;
   line-height: 28px;
+}
+
+.planet {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+.heroPlanetText {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 17px;
+}
+.planetName {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 14px;
+  color: orange;
 }

@@ -4,14 +4,13 @@ import {useDispatch, useSelector} from 'react-redux';
 import {ActivityIndicator} from '../../components/ActivityIndicator';
 import {fetchCharactersData} from '../../redux/hero/actions';
 import {Store} from '../../redux/store/types';
-
 import './styles.css';
 import {Navbar} from '../../components/NavBar';
 import {SearchBar} from '../../components/searchbar';
 import {FilterButton} from '../../components/FilterButton';
 import {Pagination} from '../../containers/PaginationButtonContainer';
 import {CardHeroContainer} from '../../containers/CardHeroContainer';
-import { hero } from '../../redux/hero/types';
+import {hero} from '../../redux/hero/types';
 
 export const MainScreen = () => {
   const dispatch = useDispatch();
@@ -60,7 +59,6 @@ export const MainScreen = () => {
     setData(newItems);
   };
 
-
   return (
     <div>
       <Navbar />
@@ -75,6 +73,7 @@ export const MainScreen = () => {
               return (
                 <CardHeroContainer
                   key={index}
+                  index={index}
                   hero={hero}
                   data={heroFavorites}
                 />
