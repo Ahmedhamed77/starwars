@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import React from 'react';
+import {useDispatch} from 'react-redux';
 
 import {HeroCard} from '../../components/HeroCard';
 import {hero} from '../../redux/hero/types';
@@ -7,8 +7,7 @@ import {
   addHeroFavorite,
   removeHeroFavorite,
 } from '../../redux/heroFavorite/actions';
-import {planetInfo} from '../../redux/planet/actions';
-import {Store} from '../../redux/store/types';
+
 
 interface HeroCardContainerProps {
   data: hero[];
