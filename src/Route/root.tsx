@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import { Footer } from '../components/Footer';
+import { Footer } from '../screens/MainScreen/Components/Footer';
 import {FavoriteScreen} from '../screens/FavoriteScreen';
 import {MainScreen} from '../screens/MainScreen';
 

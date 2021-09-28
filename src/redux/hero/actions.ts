@@ -19,6 +19,12 @@ export const searchHero = (searchedHero: any) =>
     searchedHero,
   };
 
+export const filterHeros = (filterType: any) =>
+  <const>{
+    type: 'FILTER_HEROS',
+    filterType,
+  };
+
 export const fetchCharactersData =
   (page?: number): AppThunk =>
   async dispatch => {
@@ -44,4 +50,10 @@ export const fetchSearchedHeroes =
       console.log(error, 'error fetching search heroes');
     }
     dispatch(heroIsLoading(false));
+  };
+
+export const filterHeroesAction =
+  (filterType: string): AppThunk =>
+  async dispatch => {
+    dispatch(filterHeros(filterType));
   };

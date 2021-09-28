@@ -4,6 +4,7 @@ import {HeroAction, HeroReducer} from './types';
 const initialState: HeroReducer = {
   heroes: [],
   heroIsLoading: false,
+  heroCopy: [],
 };
 
 export const hero: Reducer<HeroReducer, HeroAction> = (
@@ -15,6 +16,7 @@ export const hero: Reducer<HeroReducer, HeroAction> = (
       return {
         ...state,
         heroes: action.characters,
+        heroCopy: action.characters,
       };
     case 'HEROES_LOADING':
       return {
@@ -25,6 +27,14 @@ export const hero: Reducer<HeroReducer, HeroAction> = (
       return {
         ...state,
         heroes: action.searchedHero,
+      };
+    case 'FILTER_HEROS':
+      return {
+        ...state,
+        heroes:
+          action.filterType === 'all'
+            ? state.heroCopy
+            : state.heroCopy.filter(hero => hero.gender === action.filterType),
       };
     default:
       return state;

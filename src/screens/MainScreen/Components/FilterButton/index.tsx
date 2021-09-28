@@ -3,11 +3,11 @@ import React from 'react';
 import './filter.css';
 export interface FilterButtonProps {
   categories: string[];
-  filterItems: (data: string) => void;
+  handleFilterItems: (type: string) => void;
 }
 export const FilterButton: React.FC<FilterButtonProps> = ({
   categories,
-  filterItems,
+  handleFilterItems,
 }) => {
   return (
     <div className="filter-container">
@@ -19,7 +19,7 @@ export const FilterButton: React.FC<FilterButtonProps> = ({
               type="button"
               className="filter-btn"
               key={index}
-              onClick={() => filterItems(category)}>
+              onClick={() => handleFilterItems(category)}>
               {category}
             </button>
           );

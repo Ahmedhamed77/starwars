@@ -1,26 +1,10 @@
 import {hero} from './reducers';
-import {getHeroesData, heroIsLoading, searchHero} from './actions';
+import {getHeroesData, heroIsLoading, searchHero, filterHeros} from './actions';
 
 export interface HeroReducer {
-  heroes: {
-    name: string;
-    height: string;
-    mass: string;
-    hair_color: string;
-    skin_color: string;
-    eye_color: string;
-    birth_year: string;
-    gender: string;
-    homeworld: string;
-    films: [];
-    species: [];
-    vehicles: [];
-    starships: [];
-    created: string;
-    edited: string;
-    url: string;
-  }[];
+  heroes: hero[];
   heroIsLoading: boolean;
+  heroCopy: hero[];
 }
 
 export type hero = {
@@ -45,4 +29,5 @@ export type hero = {
 export type HeroAction =
   | ReturnType<typeof getHeroesData>
   | ReturnType<typeof searchHero>
-  | ReturnType<typeof heroIsLoading>;
+  | ReturnType<typeof heroIsLoading>
+  | ReturnType<typeof filterHeros>;

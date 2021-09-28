@@ -1,7 +1,8 @@
+import {Planet} from './types';
 import {getPlanet} from '../../api/planet';
 import {AppThunk} from '../store/types';
 
-export const fetchPlanet = (planet: any) =>
+export const fetchPlanet = (planet: Planet) =>
   <const>{
     type: 'FETCH_PLANET',
     planet,
