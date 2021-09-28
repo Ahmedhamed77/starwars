@@ -1,13 +1,13 @@
-import {hero} from '../hero/types';
+import {Hero} from '../hero/types';
 import {AppThunk} from '../store/types';
 
-export const addHeroToFavorite = (hero: any) =>
+export const addHeroToFavorite = (hero: Hero) =>
   <const>{
     type: 'ADD_HERO_TO_FAVORITE',
     hero,
   };
 
-export const removeHeroFromFavorite = (hero: any) =>
+export const removeHeroFromFavorite = (hero: Hero) =>
   <const>{
     type: 'REMOVE_HERO_FROM_FAVORITE',
     hero,
@@ -21,7 +21,7 @@ export const favoriteIsLoading = (status: boolean) =>
 //   };
 
 export const addHeroFavorite =
-  (hero: any): AppThunk =>
+  (hero: Hero): AppThunk =>
   async dispatch => {
     dispatch(favoriteIsLoading(true));
     dispatch(addHeroToFavorite(hero));
@@ -29,7 +29,7 @@ export const addHeroFavorite =
   };
 
 export const removeHeroFavorite =
-  (hero: any): AppThunk =>
+  (hero: Hero): AppThunk =>
   async dispatch => {
     dispatch(favoriteIsLoading(true));
 

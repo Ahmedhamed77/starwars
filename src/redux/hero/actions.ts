@@ -1,7 +1,7 @@
 import {getHeroes, heroesSearch} from '../../api/hero';
 import {AppThunk} from '../store/types';
-
-export const getHeroesData = (characters: any) =>
+import {Hero} from './types';
+export const getHeroesData = (characters: Hero[]) =>
   <const>{
     type: 'GET_CONTACTS',
     characters,
@@ -13,13 +13,13 @@ export const heroIsLoading = (status: boolean) =>
     status,
   };
 
-export const searchHero = (searchedHero: any) =>
+export const searchHero = (searchedHero: Hero[]) =>
   <const>{
     type: 'SEARCH_HERO',
     searchedHero,
   };
 
-export const filterHeros = (filterType: any) =>
+export const filterHeros = (filterType: string) =>
   <const>{
     type: 'FILTER_HEROS',
     filterType,

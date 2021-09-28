@@ -1,16 +1,17 @@
 import React from 'react';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
-import {hero} from '../../redux/hero/types';
+import {Hero} from '../../redux/hero/types';
+import {Planet} from '../../redux/planet/types';
 import {getId} from '../../utils/getPlantId';
 import './heroItem.css';
 
 interface HeroCardProps {
-  hero: hero;
+  hero: Hero;
   exists: (name: string) => boolean;
-  handleRemoveFav: (hero: hero) => void;
-  handleAddFav: (hero: hero) => void;
-  planet: any;
+  handleRemoveFav: (hero: Hero) => void;
+  handleAddFav: (hero: Hero) => void;
+  planet: Planet[];
   index: number;
 }
 export const HeroCard: React.FC<HeroCardProps> = ({

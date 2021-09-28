@@ -2,12 +2,12 @@ import {hero} from './reducers';
 import {getHeroesData, heroIsLoading, searchHero, filterHeros} from './actions';
 
 export interface HeroReducer {
-  heroes: hero[];
+  heroes: Hero[];
   heroIsLoading: boolean;
-  heroCopy: hero[];
+  heroCopy: Hero[];
 }
 
-export type hero = {
+export type Hero = {
   name: string;
   height: string;
   mass: string;

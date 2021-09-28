@@ -1,5 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
+
+import {Hero} from '../../redux/hero/types';
 import {CardHeroContainer} from '../../containers/CardHero';
 import {Store} from '../../redux/store/types';
 import './favorite.css';
@@ -19,7 +21,7 @@ export const FavoriteScreen = () => {
               you don&#x27;t have favorites yet &#44; please add some.
             </p>
           ) : (
-            favorites?.map((favorite: any, index: number) => {
+            favorites?.map((favorite: Hero, index: number) => {
               return (
                 <CardHeroContainer
                   index={index}

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {HeroCard} from '../../components/HeroItem';
-import {hero} from '../../redux/hero/types';
+import {Hero} from '../../redux/hero/types';
 import {
   addHeroFavorite,
   removeHeroFavorite,
@@ -11,8 +11,8 @@ import {planetInfo} from '../../redux/planet/actions';
 import {Store} from '../../redux/store/types';
 
 interface HeroCardContainerProps {
-  favorties: hero[];
-  hero: hero;
+  favorties: Hero[];
+  hero: Hero;
   index: number;
 }
 export const CardHeroContainer: React.FC<HeroCardContainerProps> = ({
@@ -30,11 +30,11 @@ export const CardHeroContainer: React.FC<HeroCardContainerProps> = ({
 
   const exists = (name: string) => favorties?.some(item => item.name === name);
 
-  const addToFav = (hero: hero) => {
+  const addToFav = (hero: Hero) => {
     dispatch(addHeroFavorite(hero));
   };
 
-  const removeFromFav = (hero: hero) => {
+  const removeFromFav = (hero: Hero) => {
     dispatch(removeHeroFavorite(hero));
   };
   return (

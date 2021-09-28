@@ -2,11 +2,11 @@ import React from 'react';
 import {useDispatch} from 'react-redux';
 
 import {fetchSearchedHeroes} from '../../redux/hero/actions';
-import {hero} from '../../redux/hero/types';
+import {Hero} from '../../redux/hero/types';
 import './search.css';
 
 export interface SearchBarProps {
-  heroes: hero[];
+  heroes: Hero[];
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({heroes}) => {

@@ -1,4 +1,4 @@
-import {hero} from '../hero/types';
+import {Hero} from '../hero/types';
 
 import {
   addHeroToFavorite,
@@ -7,7 +7,7 @@ import {
 } from './actions';
 
 export interface FavoritesReducer {
-  favorites: hero[];
+  favorites: Hero[];
   favoriteIsLoading: boolean;
 }
 

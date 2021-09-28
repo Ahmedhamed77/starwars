@@ -6,14 +6,14 @@ import {FilterButton} from '../Components/FilterButton';
 import {Navbar} from '../../../components/Navbar';
 import {SearchBar} from '../../../components/searchbar';
 
-import {hero} from '../../../redux/hero/types';
+import {Hero} from '../../../redux/hero/types';
 import {RenderHero} from '../Components/RenderHeros';
 
 export interface MainScreenContainerProps {
-  heroes: hero[];
+  heroes: Hero[];
   isLoading: boolean;
   categories: string[];
-  favorites: hero[];
+  favorites: Hero[];
   page: number;
   handleFilterItems: (type: string) => void;
   handleNextPage: () => void;
