@@ -16,22 +16,19 @@ export const Pagination: React.FC<ButtonPaginationProps> = ({
 }) => {
   return (
     <div className="btn-container">
-      {page > 1 && (
-        <button
-          className="button"
-          disabled={isLoading}
-          onClick={handlePrevPage}>
-          ‹
-        </button>
-      )}
-      {page < 9 && (
-        <button
-          className="button"
-          disabled={isLoading}
-          onClick={handleNextPage}>
-          ›
-        </button>
-      )}
+      <button
+        className={Boolean(page <= 1) ? ' button disabled_button ' : 'button'}
+        disabled={isLoading || Boolean(page <= 1)}
+        onClick={handlePrevPage}>
+        ‹
+      </button>
+
+      <button
+        className={Boolean(page >= 9) ? ' button disabled_button ' : 'button'}
+        disabled={isLoading || Boolean(page >= 9)}
+        onClick={handleNextPage}>
+        ›
+      </button>
     </div>
   );
 };

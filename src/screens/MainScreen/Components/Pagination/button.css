@@ -16,3 +16,6 @@
   border: none;
   cursor: pointer;
 }
+.disabled_button{
+  background-color: #999793;
+}

@@ -1,10 +1,9 @@
 import React from 'react';
-
-import './heroItem.css';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+
 import {hero} from '../../redux/hero/types';
 import {getId} from '../../utils/getPlantId';
-// import {FavoriteScreen} from 'screens/FavoriteScreen';
+import './heroItem.css';
 
 interface HeroCardProps {
   hero: hero;

@@ -7,7 +7,6 @@ import {
 } from '../../redux/hero/actions';
 import {Store} from '../../redux/store/types';
 import {MainScreenContainer} from './Container';
-import './styles.css';
 
 export const MainScreen = () => {
   //local state
@@ -35,6 +34,8 @@ export const MainScreen = () => {
   const handleFilterItems = (category: string) => {
     dispatch(filterHeroesAction(category));
   };
+
+  console.log(page, 'page');
 
   return (
     <MainScreenContainer

@@ -1,14 +1,15 @@
 import React from 'react';
 
 import {ActivityIndicator} from '../../../components/ActivityIndicator';
-import {Pagination} from '../Components/Pagination';
+
 import {FilterButton} from '../Components/FilterButton';
 import {Navbar} from '../../../components/Navbar';
 import {SearchBar} from '../../../components/searchbar';
-import {CardHeroContainer} from '../../../containers/CardHero';
-import {hero} from '../../../redux/hero/types';
 
-interface MainScreenContainerProps {
+import {hero} from '../../../redux/hero/types';
+import {RenderHero} from '../Components/RenderHeros';
+
+export interface MainScreenContainerProps {
   heroes: hero[];
   isLoading: boolean;
   categories: string[];
@@ -39,27 +40,14 @@ export const MainScreenContainer: React.FC<MainScreenContainerProps> = ({
       {isLoading ? (
         <ActivityIndicator />
       ) : (
-        <div>
-          <ul className="container">
-            {heroes.map((hero, index) => {
-              return (
-                <CardHeroContainer
-                  key={index}
-                  index={index}
-                  hero={hero}
-                  favorties={favorites}
-                />
-              );
-            })}
-          </ul>
-
-          <Pagination
-            page={page}
-            isLoading={isLoading}
-            handleNextPage={handleNextPage}
-            handlePrevPage={handlePrevPage}
-          />
-        </div>
+        <RenderHero
+          page={page}
+          heroes={heroes}
+          favorites={favorites}
+          isLoading={isLoading}
+          handleNextPage={handleNextPage}
+          handlePrevPage={handlePrevPage}
+        />
       )}
     </div>
   );

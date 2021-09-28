@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useSelector} from 'react-redux';
 import {CardHeroContainer} from '../../containers/CardHero';
 import {Store} from '../../redux/store/types';
