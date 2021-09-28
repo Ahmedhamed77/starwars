@@ -13,7 +13,7 @@ export const FilterButton: React.FC<FilterButtonProps> = ({
     <div className="filter-container">
       <p className="filter-text">Filter Hero</p>
       <div>
-        {categories.map((category: any, index: number) => {
+        {categories.map((category: string, index: number) => {
           return (
             <button
               type="button"

@@ -3,8 +3,8 @@ import React from 'react';
 import './button.css';
 
 export interface ButtonPaginationProps {
-  handleNextPage: any;
-  handlePrevPage: any;
+  handleNextPage: () => void;
+  handlePrevPage: () => void;
   isLoading: boolean;
   page: number;
 }
