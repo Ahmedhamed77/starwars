@@ -2,7 +2,7 @@ import React from 'react';
 
 import {ActivityIndicator} from '../../../components/ActivityIndicator';
 
-import {FilterButton} from '../Components/FilterButton';
+import {FilterButton} from '../../../components/FilterButton';
 import {Navbar} from '../../../components/Navbar';
 import {SearchBar} from '../../../components/searchbar';
 import {Hero} from '../../../redux/hero/types';

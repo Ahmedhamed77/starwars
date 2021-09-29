@@ -1,39 +1,27 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
-import {Hero} from '../../redux/hero/types';
-import {CardHeroContainer} from '../../containers/CardHero';
 import {Store} from '../../redux/store/types';
-import './favorite.css';
+import {filterHeroesFavorties} from '../../redux/Favorite/actions';
+import {FavoriteScreenContainer} from './Container';
 
 export const FavoriteScreen = () => {
-  const data = JSON.parse(localStorage.getItem('star-wars') || '[]');
-  const {favorites} = useSelector((store: Store) => store.heroFavorites);
+  const dispatch = useDispatch();
+  const {favorites, favoritesCopy} = useSelector(
+    (store: Store) => store.heroFavorites,
+  );
+
+  let uniques = Array.from(new Set(favoritesCopy.map(hero => hero.gender)));
+  let categories = ['all', ...uniques];
+
+  const handleFilterItems = (category: string) => {
+    dispatch(filterHeroesFavorties(category));
+  };
   return (
-    <div className="containerFavorite">
-      <div>
-        <h1 className="header-favorite">Favorites</h1>
-      </div>
-      <div>
-        <ul className="containerCard">
-          {!favorites?.length ? (
-            <p className="no-favorite">
-              you don&#x27;t have favorites yet &#44; please add some.
-            </p>
-          ) : (
-            favorites?.map((favorite: Hero, index: number) => {
-              return (
-                <CardHeroContainer
-                  index={index}
-                  key={index}
-                  hero={favorite}
-                  favorties={favorites}
-                />
-              );
-            })
-          )}
-        </ul>
-      </div>
-    </div>
+    <FavoriteScreenContainer
+      favorites={favorites}
+      categories={categories}
+      handleFilterItems={handleFilterItems}
+    />
   );
 };

@@ -18,7 +18,12 @@ export const favoriteIsLoading = (status: boolean) =>
     type: 'FAVORITE_IS_LOADING',
     status,
   };
-//   };
+
+export const filterFavorites = (filterType: string) =>
+  <const>{
+    type: 'FILTER_FAVORTIES',
+    filterType,
+  };
 
 export const addHeroFavorite =
   (hero: Hero): AppThunk =>
@@ -36,4 +41,10 @@ export const removeHeroFavorite =
     dispatch(removeHeroFromFavorite(hero));
 
     dispatch(favoriteIsLoading(false));
+  };
+
+export const filterHeroesFavorties =
+  (filterType: string): AppThunk =>
+  async dispatch => {
+    dispatch(filterFavorites(filterType));
   };
