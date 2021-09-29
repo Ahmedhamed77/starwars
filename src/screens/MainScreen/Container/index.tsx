@@ -34,10 +34,7 @@ export const MainScreenContainer: React.FC<MainScreenContainerProps> = ({
     <div>
       <Navbar />
       <SearchBar heroes={heroes} />
-      <FilterButton
-        categories={categories}
-        handleFilterItems={handleFilterItems}
-      />
+
       {isLoading ? (
         <>
           <div className="container_placeholder">
@@ -47,14 +44,20 @@ export const MainScreenContainer: React.FC<MainScreenContainerProps> = ({
           </div>
         </>
       ) : (
-        <RenderHero
-          page={page}
-          heroes={heroes}
-          favorites={favorites}
-          isLoading={isLoading}
-          handleNextPage={handleNextPage}
-          handlePrevPage={handlePrevPage}
-        />
+        <>
+          <FilterButton
+            categories={categories}
+            handleFilterItems={handleFilterItems}
+          />
+          <RenderHero
+            page={page}
+            heroes={heroes}
+            favorites={favorites}
+            isLoading={isLoading}
+            handleNextPage={handleNextPage}
+            handlePrevPage={handlePrevPage}
+          />
+        </>
       )}
     </div>
   );
