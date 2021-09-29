@@ -11,8 +11,7 @@ export const FilterButton: React.FC<FilterButtonProps> = ({
 }) => {
   return (
     <div className="filter-container">
-      <p className="filter-text">Filter Hero</p>
-      <div>
+      <div className="filter_content">
         {categories.map((category: string, index: number) => {
           return (
             <button

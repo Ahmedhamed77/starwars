@@ -9,14 +9,21 @@
 
 .form-input {
   width: 100%;
-  border: transparent;
+  border: 1px solid gray;
   max-width: 40%;
   background: #fff;
   padding: 1rem;
   font-size: 1rem;
-  border-radius: 0.25rem;
+  border-radius: 10px;
   color: hsl(209, 34%, 30%);
   letter-spacing: 0.1rem;
+}
+
+.error {
+}
+.error_text {
+  color: red;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 600px) {

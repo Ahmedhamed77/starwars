@@ -17,14 +17,16 @@ export const SearchBar: React.FC<SearchBarProps> = ({heroes}) => {
         <input
           type="text"
           className="form-input"
-          placeholder="search your character by name"
+          placeholder="search your character by name..."
           onChange={e => {
             dispatch(fetchSearchedHeroes(e.target.value));
           }}
         />
       </div>
 
-      {heroes.length ? <div className="error" /> : <p> sorry no matches</p>}
+      {heroes.length ? null : (
+        <p className="error_text"> sorry we couldn&#x27;t find your match</p>
+      )}
     </form>
   );
 };

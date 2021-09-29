@@ -35,8 +35,6 @@ export const MainScreen = () => {
     dispatch(filterHeroesAction(category));
   };
 
-  console.log(page, 'page');
-
   return (
     <MainScreenContainer
       heroes={heroes}
