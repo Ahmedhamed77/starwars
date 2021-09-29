@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {ActivityIndicator} from '../../../components/ActivityIndicator';
-
 import {FilterButton} from '../../../components/FilterButton';
 import {Navbar} from '../../../components/Navbar';
 import {SearchBar} from '../../../components/searchbar';
