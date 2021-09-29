@@ -1,4 +1,3 @@
-import {hero} from './reducers';
 import {getHeroesData, heroIsLoading, searchHero, filterHeros} from './actions';
 
 export interface HeroReducer {

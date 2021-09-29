@@ -1,4 +1,3 @@
-// import { persistReducer } from 'redux-persist';
 import {combineReducers} from 'redux';
 import {hero} from '../hero/reducers';
 import {planetHero} from '../planet/reducers';
